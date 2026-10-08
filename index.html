@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jelajah Bahasa Melayu Tahun 4</title>
+<style>
+:root{--ink:#172554;--blue:#2563eb;--cyan:#06b6d4;--pink:#ec4899;--yellow:#facc15;--green:#22c55e;--red:#ef4444;--white:#fff;--glass:rgba(255,255,255,.9)}
+*{box-sizing:border-box} body{margin:0;font-family:"Trebuchet MS",system-ui,sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden;background:linear-gradient(135deg,#bae6fd,#ddd6fe 45%,#fce7f3)}
+body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(4px);opacity:.55}
+body:before{width:330px;height:330px;background:#fde68a;top:-100px;left:-80px;animation:float 9s ease-in-out infinite}
+body:after{width:390px;height:390px;background:#a7f3d0;right:-130px;bottom:-130px;animation:float 11s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(35px,25px) scale(1.08)}}
+.wrap{max-width:1050px;margin:auto;padding:18px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--glass);backdrop-filter:blur(12px);border:3px solid #fff;border-radius:28px;padding:14px 18px;box-shadow:0 15px 35px #1e3a8a22;position:sticky;top:10px;z-index:5}
+.brand{display:flex;align-items:center;gap:12px}.logo{font-size:42px;animation:bounce 2.5s infinite}.title{font-weight:900;font-size:clamp(20px,4vw,32px)}.sub{font-size:13px;font-weight:700;opacity:.7}
+@keyframes bounce{50%{transform:translateY(-5px) rotate(3deg)}}
+button,input{font:inherit}.btn{border:0;border-radius:16px;padding:11px 16px;font-weight:900;cursor:pointer;transition:.2s;box-shadow:0 5px 0 #0002}.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #0002}.sound{background:#0f172a;color:#fff}
+main{padding:25px 0}.screen{display:none}.screen.active{display:block;animation:pop .35s ease}@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero,.card{background:var(--glass);border:3px solid #fff;border-radius:30px;padding:25px;box-shadow:0 18px 45px #1e3a8a20}.hero{text-align:center}.hero h1{font-size:clamp(30px,7vw,58px);margin:8px 0}.hero p{font-size:18px}.mascot{font-size:72px;display:inline-block;animation:wiggle 3s infinite}@keyframes wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(5deg)}}
+.namebox{display:flex;max-width:650px;margin:18px auto;gap:10px}.namebox input{flex:1;border:3px solid #bfdbfe;border-radius:16px;padding:13px 16px;outline:0}.namebox input:focus{border-color:var(--blue)}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.level{padding:20px;border-radius:24px;color:#fff;cursor:pointer;min-height:150px;border:3px solid #fff;box-shadow:0 9px 0 #0002}.level:nth-child(1){background:linear-gradient(135deg,#06b6d4,#2563eb)}.level:nth-child(2){background:linear-gradient(135deg,#8b5cf6,#ec4899)}.level:nth-child(3){background:linear-gradient(135deg,#f59e0b,#ef4444)}.level.locked{filter:grayscale(.5);opacity:.65;cursor:not-allowed}.level h3{font-size:23px;margin:0 0 7px}.level .big{font-size:42px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.pill{padding:8px 12px;border-radius:999px;background:#fff;font-weight:900}.progress{height:13px;background:#dbeafe;border-radius:99px;overflow:hidden;margin:12px 0}.bar{height:100%;background:linear-gradient(90deg,#22c55e,#06b6d4,#6366f1);width:0;transition:.4s}
+.qtext{font-size:clamp(20px,4vw,29px);font-weight:900;line-height:1.3;margin:20px 0}.choices{display:grid;gap:12px}.choice{border:3px solid #dbeafe;background:#fff;border-radius:18px;padding:15px;text-align:left;font-weight:800;cursor:pointer;transition:.2s}.choice:hover{border-color:#60a5fa;transform:translateX(3px)}.choice.correct{background:#dcfce7;border-color:#22c55e}.choice.wrong{background:#fee2e2;border-color:#ef4444}.feedback{min-height:52px;padding:12px;border-radius:16px;font-weight:900;margin:15px 0;display:none}.feedback.show{display:block}.feedback.good{background:#dcfce7;color:#166534}.feedback.bad{background:#fee2e2;color:#991b1b}
+.nextrow{display:flex;justify-content:flex-end}.next{background:#2563eb;color:#fff;display:none}.next.show{display:block}
+.stars{font-size:25px;letter-spacing:2px}.scorebig{font-size:65px;font-weight:1000}.win{background:linear-gradient(135deg,#fff,#fef3c7);text-align:center;overflow:hidden}.win h2{font-size:42px;margin:5px}.confetti{font-size:34px;animation:fall 2.2s infinite alternate}@keyframes fall{to{transform:translateY(18px) rotate(12deg)}}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.info{background:#fff;border-radius:20px;padding:18px;border-left:8px solid var(--cyan)}.info h3{margin-top:0}.info strong{color:#1d4ed8}
+footer{text-align:center;padding:25px;font-size:13px;font-weight:700;opacity:.75}
+@media(max-width:700px){.menu,.info-grid{grid-template-columns:1fr}.namebox{flex-direction:column}.hero,.card{padding:18px}header{position:relative;top:0}.title{font-size:19px}.logo{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="brand"><div class="logo">🚀</div><div><div class="title">Jelajah Bahasa Melayu</div><div class="sub">Tahun 4 • Dunia Kartun Interaktif</div></div></div>
+ <button class="btn sound" id="soundBtn" onclick="toggleSound()">🔊 Bunyi: ON</button>
+</header>
+
+<main>
+<section id="home" class="screen active">
+ <div class="hero">
+  <div class="mascot">🧑‍🚀📚</div>
+  <h1>Jom Jelajah Bahasa!</h1>
+  <p>Belajar melalui nota infografik, kemudian cabar diri dengan <b>25 soalan</b> dalam 3 tahap.</p>
+  <div class="namebox"><input id="playerName" placeholder="Taip nama murid di sini..." maxlength="40"><button class="btn" style="background:#facc15;color:#713f12" onclick="startGame()">🚀 Mula</button></div>
+  <div class="menu">
+   <div class="level" onclick="show('notes')"><div class="big">🗺️</div><h3>Nota Infografik</h3><div>Ulang kaji pantas</div></div>
+   <div class="level" onclick="chooseLevel(0)"><div class="big">⭐</div><h3>Tahap 1</h3><div>8 soalan • Asas</div></div>
+   <div class="level locked" id="menuL3"><div class="big">🔒</div><h3>Tahap 2 & 3</h3><div>Selesaikan tahap sebelumnya</div></div>
+  </div>
+ </div>
+</section>
+
+<section id="notes" class="screen">
+ <div class="card">
+  <div class="section-head"><h2>🗺️ Nota Infografik</h2><button class="btn" onclick="show('home')">🏠 Menu</button></div>
+  <div class="info-grid">
+   <div class="info"><h3>👂 SK 1.1</h3><p><strong>Mendengar dan memberikan respons</strong> semasa berkomunikasi dalam situasi formal dan tidak formal.</p></div>
+   <div class="info"><h3>🎯 SP 1.1.1</h3><p>Mendengar, mengecam sebutan, dan menyebut sesuatu yang diujarkan semula dalam situasi tidak formal.</p></div>
+   <div class="info"><h3>🧠 SP 1.1.2</h3><p>Mendengar, memahami dan memberikan respons terhadap ujaran yang terdapat dalam situasi tidak formal.</p></div>
+   <div class="info"><h3>💡 SP 1.1.3</h3><p>Mendengar, mentafsir dan memberikan respons terhadap soalan secara kritis.</p></div>
+  </div>
+  <div class="info-grid" style="margin-top:14px">
+   <div class="info"><h3>👂 Mendengar</h3><p>Fokus kepada sebutan, maklumat penting, nada dan maksud ujaran.</p></div>
+   <div class="info"><h3>🗣️ Bertutur</h3><p>Berikan respons yang <strong>jelas, sopan dan sesuai dengan situasi</strong>.</p></div>
+   <div class="info"><h3>🔎 Mentafsir</h3><p>Cari maksud tersurat dan tersirat sebelum memilih jawapan.</p></div>
+   <div class="info"><h3>⭐ Tip Juara</h3><p>Baca pilihan jawapan dengan teliti. Fikir dahulu, kemudian jawab!</p></div>
+  </div>
+  <button class="btn" style="background:#2563eb;color:#fff;margin-top:18px" onclick="startGame()">🚀 Mula Cabaran 25 Soalan</button>
+ </div>
+</section>
+
+<section id="quiz" class="screen">
+ <div class="card">
+  <div class="section-head"><div><span class="pill" id="levelLabel">Tahap 1</span> <span class="pill" id="qCounter">1/25</span></div><div class="stars" id="stars">☆☆☆☆☆</div></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="qtext" id="qtext"></div>
+  <div class="choices" id="choices"></div>
+  <div class="feedback" id="feedback"></div>
+  <div class="nextrow"><button class="btn next" id="nextBtn" onclick="nextQuestion()">Soalan Seterusnya ➜</button></div>
+ </div>
+</section>
+
+<section id="result" class="screen">
+ <div class="card win">
+  <div class="confetti">🎉 ⭐ 🎊 🌟 🎈 🥳</div>
+  <h2 id="resultTitle">Syabas!</h2>
+  <p id="resultName"></p>
+  <div class="scorebig" id="scoreBig">0/25</div>
+  <div class="stars" id="resultStars" style="font-size:38px"></div>
+  <p id="resultMsg"></p>
+  <button class="btn" style="background:#2563eb;color:#fff" onclick="show('home')">🏠 Kembali ke Menu</button>
+  <button class="btn" style="background:#22c55e;color:#fff" onclick="startGame()">🔄 Cuba Lagi</button>
+ </div>
+</section>
+</main>
+<footer>Bahasa Melayu Tahun 4 • Guru: <b>MUHAMAD SYAWALWAHED</b> • <b>SK (P) JALAN YAHYA AWAL</b></footer>
+</div>
+
+<script>
+const questions=[
+{l:1,q:"Rina berkata, “Hai, Amir! Jom kita ke perpustakaan.” Apakah situasi ini?",a:["Situasi tidak formal","Ucapan rasmi","Mesyuarat formal","Pengumuman perhimpunan"],c:0,e:"Perbualan antara rakan secara santai ialah situasi tidak formal."},
+{l:1,q:"Apakah respons paling sesuai apabila rakan berkata, “Tolong ambilkan buku itu.”?",a:["Baik, saya ambilkan.","Diam sahaja.","Tidak tahu.","Selamat pagi, tuan."],c:0,e:"Respons perlu berkaitan dengan permintaan dan sopan."},
+{l:1,q:"Dengar ujaran: “Esok kita berkumpul di kantin pada pukul 7.30 pagi.” Apakah maklumat penting?",a:["Tempat dan masa","Warna kantin","Nama guru","Bilangan buku"],c:0,e:"Maklumat penting ialah lokasi (kantin) dan masa (7.30 pagi)."},
+{l:1,q:"Ali berkata, “Wah, sedapnya kek itu!” Apakah maksud ujaran tersebut?",a:["Ali menyukai kek itu.","Ali tidak mahu kek.","Ali sedang marah.","Ali mahu tidur."],c:0,e:"Ungkapan “sedapnya” menunjukkan Ali menyukai rasa kek."},
+{l:1,q:"Apakah sebutan yang sesuai ketika menyampaikan sesuatu kepada rakan?",a:["Jelas dan mudah difahami","Terlalu perlahan","Menjerit tanpa sebab","Tidak menyebut perkataan"],c:0,e:"Sebutan yang jelas membantu pendengar memahami ujaran."},
+{l:1,q:"Rakan berkata, “Boleh kamu pinjamkan pensel?” Apakah jawapan yang bertatasusila?",a:["Boleh, silakan.","Ambil sendiri!","Tak mahu!","Diam."],c:0,e:"“Boleh, silakan” ialah respons yang sopan."},
+{l:1,q:"Apakah yang perlu dilakukan sebelum memberikan respons terhadap sesuatu ujaran?",a:["Mendengar dan memahami","Terus meneka","Bercakap serentak","Mengabaikan ujaran"],c:0,e:"Kita perlu mendengar dan memahami dahulu."},
+{l:1,q:"“Jangan berlari di dalam kelas.” Apakah jenis ujaran ini?",a:["Larangan","Pujian","Ucapan tahniah","Soalan"],c:0,e:"Perkataan “jangan” menunjukkan larangan."},
+
+{l:2,q:"Dengar: “Sila bawa buku latihan Bahasa Melayu dan pensel warna esok.” Apakah yang perlu dibawa?",a:["Buku latihan BM dan pensel warna","Buku Matematik sahaja","Beg sukan","Komputer"],c:0,e:"Kedua-dua barang dinyatakan dalam ujaran."},
+{l:2,q:"Kawan berkata, “Saya belum siap menyiapkan poster kerana tiada pen marker.” Apakah respons terbaik?",a:["Saya boleh pinjamkan pen marker.","Itu bukan masalah saya.","Mari kita balik.","Poster itu buruk."],c:0,e:"Respons yang membantu dan sesuai ialah menawarkan bantuan."},
+{l:2,q:"“Bagus sekali pembentangan kamu!” Apakah perasaan penutur?",a:["Memuji","Marah","Takut","Keliru"],c:0,e:"Ungkapan “bagus sekali” menunjukkan pujian."},
+{l:2,q:"Guru berkata, “Sila duduk dengan tertib dan dengar arahan.” Apakah tindakan yang tepat?",a:["Duduk dan mendengar arahan","Bercakap dengan rakan","Keluar kelas","Berlari"],c:0,e:"Kita perlu mematuhi arahan yang diberikan."},
+{l:2,q:"Mengapakah kita perlu menggunakan bahasa yang sopan ketika berbual?",a:["Supaya komunikasi berjalan baik","Supaya orang takut","Supaya kita boleh menjerit","Supaya perbualan lebih panjang"],c:0,e:"Bahasa sopan menjaga hubungan dan menjadikan komunikasi lebih baik."},
+{l:2,q:"Rakan berkata, “Saya risau kerana terlupa membawa buku.” Apakah respons yang paling empati?",a:["Jangan risau, kita cari jalan penyelesaian bersama.","Padan muka.","Saya tak peduli.","Itu salah kamu."],c:0,e:"Respons empati menunjukkan keprihatinan dan membantu mencari penyelesaian."},
+{l:2,q:"Dengar: “Selepas rehat, murid Tahun 4 berkumpul di dewan untuk latihan persembahan.” Bilakah murid berkumpul?",a:["Selepas rehat","Sebelum masuk kelas","Semasa waktu tidur","Pada waktu malam"],c:0,e:"Ujaran menyatakan “selepas rehat”."},
+{l:2,q:"Apakah cara terbaik untuk memastikan kita memahami arahan yang kurang jelas?",a:["Bertanya untuk mendapatkan penjelasan","Terus membuat andaian","Mengabaikannya","Meniru rakan"],c:0,e:"Bertanya ialah cara yang tepat untuk mendapatkan penjelasan."},
+
+{l:3,q:"Amir berkata, “Kita patut menjaga kebersihan kelas walaupun bukan giliran kita.” Apakah idea tersirat?",a:["Semua murid bertanggungjawab menjaga kebersihan.","Hanya pengawas perlu membersihkan kelas.","Kelas tidak perlu dibersihkan.","Kebersihan tidak penting."],c:0,e:"Ujaran menekankan tanggungjawab bersama, bukan hanya mengikut giliran."},
+{l:3,q:"Seorang rakan tidak bercakap ketika perbincangan. Apakah respons paling sesuai?",a:["Bertanya dengan sopan jika dia ingin berkongsi pendapat.","Memaksanya bercakap.","Mentertawakannya.","Meninggalkannya."],c:0,e:"Soalan yang sopan memberi ruang kepada rakan untuk bersuara."},
+{l:3,q:"“Walaupun hujan, pasukan itu tetap hadir untuk latihan.” Apakah sifat yang dapat ditafsirkan?",a:["Berdisiplin dan bersungguh-sungguh","Mudah berputus asa","Tidak bertanggungjawab","Malas"],c:0,e:"Tetap hadir walaupun hujan menunjukkan kesungguhan dan disiplin."},
+{l:3,q:"Rakan berkata, “Saya rasa cadangan itu baik, tetapi kita perlu fikir tentang keselamatan.” Apakah yang dilakukan oleh rakan itu?",a:["Memberi pandangan dengan alasan","Menolak tanpa sebab","Memuji sahaja","Mengubah topik"],c:0,e:"Dia menerima idea tetapi menambah pertimbangan keselamatan."},
+{l:3,q:"Jika seseorang bercakap terlalu laju sehingga sukar difahami, apakah tindakan terbaik?",a:["Meminta dia mengulangi dengan lebih perlahan","Terus meneka","Menjerit","Berhenti mendengar"],c:0,e:"Meminta pengulangan dengan sopan membantu memastikan maklumat tepat."},
+{l:3,q:"Ketua kumpulan berkata, “Kita pilih idea yang paling selamat dan mudah dilaksanakan.” Apakah kriteria utama?",a:["Keselamatan dan kebolehlaksanaan","Warna yang paling cantik","Idea paling mahal","Idea paling pelik"],c:0,e:"Ketua menetapkan keselamatan dan kemudahan pelaksanaan sebagai kriteria."},
+{l:3,q:"“Siti diam selepas mendengar berita itu, lalu menundukkan kepala.” Apakah kemungkinan perasaannya?",a:["Sedih atau kecewa","Sangat gembira","Sangat teruja","Lapar"],c:0,e:"Gerak-geri tersebut boleh menunjukkan kesedihan atau kekecewaan."},
+{l:3,q:"Apakah respons paling kritis apabila rakan membuat cadangan yang kurang sesuai?",a:["Saya faham cadangan kamu, tetapi saya cadangkan kita pertimbangkan pilihan lain kerana…","Tidak boleh!","Apa-apa sahajalah.","Saya ikut sahaja tanpa fikir."],c:0,e:"Respons kritis menyatakan pendapat dengan alasan dan tetap bertatasusila."},
+{l:3,q:"Selepas mendengar dua pendapat yang berbeza, apakah langkah terbaik?",a:["Bandingkan alasan dan pilih keputusan yang paling munasabah.","Pilih pendapat kawan baik.","Pilih yang paling kuat suaranya.","Abaikan kedua-duanya."],c:0,e:"Perbandingan alasan membantu membuat keputusan yang munasabah."}
+];
+
+let idx=0,score=0,answered=false,soundOn=true,player="",unlocked=1;
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function speak(t){if(!soundOn||!('speechSynthesis'in window))return; speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='ms-MY';u.rate=.92;speechSynthesis.speak(u)}
+function tone(ok){if(!soundOn)return;try{let C=window.AudioContext||window.webkitAudioContext,c=new C(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?660:180;g.gain.value=.06;o.start();o.stop(c.currentTime+.16)}catch(e){}}
+function toggleSound(){soundOn=!soundOn;document.getElementById('soundBtn').textContent=soundOn?'🔊 Bunyi: ON':'🔇 Bunyi: OFF';if(!soundOn)speechSynthesis.cancel()}
+function startGame(){player=document.getElementById('playerName').value.trim()||'Murid Hebat';idx=0;score=0;unlocked=1;chooseLevel(0)}
+function chooseLevel(level){let start=[0,8,16][level];if(level>unlocked)return;idx=start;render()}
+function render(){show('quiz');answered=false;let q=questions[idx],level=q.l;document.getElementById('levelLabel').textContent='Tahap '+level;document.getElementById('qCounter').textContent=(idx+1)+'/25';document.getElementById('bar').style.width=((idx+1)/25*100)+'%';document.getElementById('qtext').textContent=q.q;let ch=document.getElementById('choices');ch.innerHTML='';q.a.forEach((x,i)=>{let b=document.createElement('button');b.className='choice';b.textContent=String.fromCharCode(65+i)+'. '+x;b.onclick=()=>answer(i,b);ch.appendChild(b)});document.getElementById('feedback').className='feedback';document.getElementById('feedback').textContent='';document.getElementById('nextBtn').className='btn next';updateStars();speak(q.q)}
+function answer(i,btn){if(answered)return;answered=true;let q=questions[idx],good=i===q.c;document.querySelectorAll('.choice').forEach((b,n)=>{b.disabled=true;if(n===q.c)b.classList.add('correct')});if(!good)btn.classList.add('wrong');if(good)score++;tone(good);let f=document.getElementById('feedback');f.className='feedback show '+(good?'good':'bad');f.textContent=good?'✅ Betul! Syabas! '+q.e:'❌ Belum tepat. Cuba lagi! '+q.e;speak(good?'Betul! Syabas!':'Belum tepat. Cuba lagi!');updateStars();document.getElementById('nextBtn').className='btn next show'}
+function nextQuestion(){if(!answered)return;if(idx===7)unlocked=2;if(idx===15)unlocked=3;if(idx<24){idx++;render()}else finish()}
+function updateStars(){let n=Math.min(5,Math.floor(score/5));document.getElementById('stars').textContent='★'.repeat(n)+'☆'.repeat(5-n)}
+function finish(){show('result');let pct=Math.round(score/25*100),stars=Math.min(5,Math.ceil(score/5));document.getElementById('resultTitle').textContent=pct>=80?'🏆 Tahniah, Juara!':pct>=60?'🌟 Syabas! Teruskan!':'💪 Usaha lagi, kamu boleh!';document.getElementById('resultName').textContent='Pemain: '+player;document.getElementById('scoreBig').textContent=score+'/25 ('+pct+'%)';document.getElementById('resultStars').textContent='★'.repeat(stars)+'☆'.repeat(5-stars);document.getElementById('resultMsg').textContent=pct>=80?'Hebat! Penguasaan kamu sangat baik.':pct>=60?'Bagus! Ulang nota dan cuba lagi untuk skor lebih tinggi.':'Jangan putus asa. Baca nota infografik dan cuba sekali lagi!';speak(pct>=80?'Tahniah, juara!':'Syabas! Teruskan usaha!')}
+document.getElementById('playerName').addEventListener('keydown',e=>{if(e.key==='Enter')startGame()});
+</script>
+</body>
+</html>
